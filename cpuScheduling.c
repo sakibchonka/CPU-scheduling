@@ -15,16 +15,28 @@ int main()
   printf("\n #Burst time should be less than 10 time units\n\n");
   for(count=0;count<numOfProcess;count++)
   {
-    printf("Enter Arrival Time and Burst Time for Process Process Number %d :",count+1);// Enter the values for arrival time and burst time
-     scanf("%d",&arrival_time[count]);
-     scanf("%d",&burst_time[count]);
-     if(arrival_time[count]<3 || burst_time>10){
-        printf("\n INVALID INPUT \n");
-        getch();
-		exit(1);
-    }
+    printf("Enter Arrival Time and Burst Time for Process Process Number %d :",count+1);// Enter the values for arrival time and burst time 
+    scanf("%d",&arrival_time[count]); 
+    scanf("%d",&burst_time[count]);
   } // COMPLEXITY=O(n)
-
+  for(i=0;i<numOfProcess;i++)
+{
+	if(burst_time[i]>10)
+	{
+		printf("\n INVALID BURST TIME \n");// For INVALID arrival time
+		getch();
+		exit(1);
+	}
+} // COMPLEXITY=O(n)
+for(i=0;i<numOfProcess;i++)
+{
+	if(arrival_time[i]<3)
+	{
+		printf("\n Invalid Arrival Time it should be greater than 3 \n");
+		getch();
+		exit(1);
+	}
+}
   printf("\n\n\tProcess\t|Turnaround Time|Waiting Time\n"); // Table created for displaying process,turnaround time and waiting time
   printf("\t===========================================\n");
 for(i=0;i<numOfProcess;i++)
